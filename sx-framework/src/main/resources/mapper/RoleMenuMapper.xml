@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.sx.mapper.RoleMenuMapper">
+    <select id="getMenusByRoleId" resultType="com.sx.domain.entity.Menu">
+        SELECT * FROM
+            `sys_menu` sm
+                LEFT JOIN `sys_role_menu` rm ON rm.`menu_id`=sm.`id`
+        WHERE rm.`role_id`=#{roleId}
+    </select>
+</mapper>
